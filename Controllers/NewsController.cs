@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 namespace WebApplication1.Controllers
 {
-    [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
     public class NewsController : ControllerBase
@@ -12,7 +11,7 @@ namespace WebApplication1.Controllers
         {
             _context = context;
         }
-        [EnableCors("AllowOrigin")]
+        [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<News>>> getNews()
         {
